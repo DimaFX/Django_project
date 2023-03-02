@@ -1,12 +1,16 @@
 # from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import View       # для классов
 
 
-def hello(request):
-    return HttpResponse('Hello world!')
+class HelloView(View):
+    def get(self, *args):
+        return HttpResponse('Hello world')
 
-def blog(request):
-    return HttpResponse('I am blog!')
+
+""" def hello(request):
+    return HttpResponse('Hello world!') """
+
 
 def funk(request, **kwargs):
     return HttpResponse(f'{kwargs}')
